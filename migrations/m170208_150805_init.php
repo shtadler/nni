@@ -6,24 +6,32 @@ class m170208_150805_init extends Migration
 {
     public function up()
     {
+        $this->createTable('{{%user}}', [
+            'id' => $this->primaryKey(),
+            'username' => $this->string(191)->notNull()->unique(),
+            'auth_key' => $this->string(32)->notNull(),
+            'password_hash' => $this->string(191)->notNull(),
+            'password_reset_token' => $this->string(191)->unique(),
+            'email' => $this->string(191)->notNull()->unique(),
 
+            'status' => $this->smallInteger()->notNull()->defaultValue(1),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
+        ]);
+
+        $this->insert('{{%user}}', [
+            'id' => 1,
+            'username' => 'admin',
+            'auth_key' => Yii::$app->security->generateRandomString(),
+            'password_hash' => Yii::$app->security->generatePasswordHash('1'),
+            'email' => 'admin@admin.com',
+            'created_at' => time(),
+            'updated_at' => time()
+        ]);
     }
 
     public function down()
     {
-        echo "m170208_150805_init cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%user}}');
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

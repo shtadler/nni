@@ -38,7 +38,7 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => YII_ENV_DEV ? require(__DIR__ . '/db.php') : require(__DIR__ . '/db_prod.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
