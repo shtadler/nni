@@ -1,14 +1,19 @@
-Options +FollowSymLinks
-IndexIgnore */*
-RewriteEngine on
+# Mod_Autoindex
+<IfModule mod_autoindex.c>
+# Disable indexes
+Options -Indexes
+</IfModule>
 
-RewriteCond %{REQUEST_URI} !^/(web)
-RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
-RewriteRule ^css/(.*)$ web/css/$1 [L]
-RewriteRule ^js/(.*)$ web/js/$1 [L]
-RewriteRule ^images/(.*)$ web/images/$1 [L]
-RewriteRule (.*) /web/$1
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+# Enable symlinks
+Options +SymLinksIfOwnerMatch
+# Enable mod_rewrite
+RewriteEngine On
 
+# If a directory or a file exists, use the request directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /web/index.php
+# Otherwise forward the request to index.php
+RewriteRule . index.php
+</IfModule>
