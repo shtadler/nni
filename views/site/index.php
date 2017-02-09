@@ -225,56 +225,6 @@
     </div><!--/.container-->
 </section><!--/#portfolio-->
 
-<section id="news">
-    <div class="container">
-        <div class="box">
-            <div class="center">
-                <h2>See our Pricings</h2>
-                <p class="lead">Pellentesque habitant morbi tristique senectus et netus et <br>malesuada fames ac turpis egestas.</p>
-            </div><!--/.center-->
-            <div class="big-gap"></div>
-            <div id="pricing-table" class="row">
-                <div class="col-sm-4">
-                    <ul class="plan">
-                        <li class="plan-name">Basic</li>
-                        <li class="plan-price">$29</li>
-                        <li>5GB Storage</li>
-                        <li>1GB RAM</li>
-                        <li>400GB Bandwidth</li>
-                        <li>10 Email Address</li>
-                        <li>Forum Support</li>
-                        <li class="plan-action"><a href="#" class="btn btn-primary btn-lg">Signup</a></li>
-                    </ul>
-                </div><!--/.col-sm-4-->
-                <div class="col-sm-4">
-                    <ul class="plan featured">
-                        <li class="plan-name">Standard</li>
-                        <li class="plan-price">$49</li>
-                        <li>10GB Storage</li>
-                        <li>2GB RAM</li>
-                        <li>1TB Bandwidth</li>
-                        <li>100 Email Address</li>
-                        <li>Forum Support</li>
-                        <li class="plan-action"><a href="#" class="btn btn-primary btn-lg">Signup</a></li>
-                    </ul>
-                </div><!--/.col-sm-4-->
-                <div class="col-sm-4">
-                    <ul class="plan">
-                        <li class="plan-name">Advanced</li>
-                        <li class="plan-price">$199</li>
-                        <li>30GB Storage</li>
-                        <li>5GB RAM</li>
-                        <li>5TB Bandwidth</li>
-                        <li>1000 Email Address</li>
-                        <li>Forum Support</li>
-                        <li class="plan-action"><a href="#" class="btn btn-primary btn-lg">Signup</a></li>
-                    </ul>
-                </div><!--/.col-sm-4-->
-            </div>
-        </div>
-    </div>
-</section><!--/#pricing-->
-
 <section id="about-us">
     <div class="container">
         <div class="box">
@@ -345,34 +295,8 @@
     <div class="container">
         <div class="box last">
             <div class="row">
-                <div class="col-sm-6">
-                    <h1>Contact Form</h1>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <div class="status alert alert-success" style="display: none"></div>
-                    <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Email address">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-danger btn-lg">Send Message</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                <div class="col-sm-6 gmap-holder">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1JiBtcFWDQQieItPlUwuzQCusFkk" width="100%" height="100%"></iframe>
                 </div><!--/.col-sm-6-->
                 <div class="col-sm-6">
                     <h1>Our Address</h1>

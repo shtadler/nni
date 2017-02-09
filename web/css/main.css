@@ -621,3 +621,7 @@ textarea#message {
     -o-transform: scale(1);
   }
 }
+
+.gmap-holder {
+  height: 480px;
+}

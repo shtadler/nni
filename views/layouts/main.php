@@ -2,8 +2,6 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 
@@ -36,7 +34,7 @@ AppAsset::register($this);
                 </button>
                 <a class="navbar-brand" href="/">
                     <?= Html::img('@web/images/logo.png', ['class' => 'logo-img']) ?>
-                    <div class="logo-label">ВННИ ДФСУ</div>
+                    <div class="logo-label">ВННІ ДФСУ</div>
                 </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -44,8 +42,9 @@ AppAsset::register($this);
                     <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
                     <li><a href="#students">Студентам</a></li>
                     <li><a href="#abiturients">Абітуриєнтам</a></li>
+                    <li><a href="#contact">Контакти</a></li>
                     <li class="dropdown">
-                        <a href="#news" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Важливо знати <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Важливо знати <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -56,7 +55,6 @@ AppAsset::register($this);
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Контакти</a></li>
                 </ul>
             </div>
         </div>
@@ -67,10 +65,10 @@ AppAsset::register($this);
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                <a target="_blank" href="https://www.nusta.edu.ua/" title="Головне відділення">Головне відділення</a>.
             </div>
             <div class="col-sm-6">
-                <img class="pull-right" src="images/shapebootstrap.png" alt="ShapeBootstrap" title="ShapeBootstrap">
+                &copy; <?= date('Y')?> ВВІ ДПСУ. Всі права захищені.
             </div>
         </div>
     </div>
