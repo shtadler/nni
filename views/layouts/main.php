@@ -2,7 +2,8 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 
@@ -33,29 +34,40 @@ AppAsset::register($this);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"></a>
+                <a class="navbar-brand" href="/">
+                    <?= Html::img('@web/images/logo.png', ['class' => 'logo-img']) ?>
+                    <div class="logo-label">ВННИ ДФСУ</div>
+                </a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#students">Студентам</a></li>
+                    <li><a href="#abiturients">Абітуриєнтам</a></li>
+                    <li class="dropdown">
+                        <a href="#news" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Важливо знати <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Контакти</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </header><!--/#header-->
-
 <section id="main-slider" class="carousel">
     <div class="carousel-inner">
         <div class="item active">
             <div class="container">
                 <div class="carousel-content">
-                    <h1>Free Onepage Theme</h1>
-                    <p class="lead">Xeon is the best free onepage responsive theme available arround the globe<br>Download it right now for free</p>
+                    <h1 class="text-uppercase">Вінницький навчально науковий інститут Державної фіскальної служби україни</h1>
                 </div>
             </div>
         </div><!--/.item-->
@@ -72,10 +84,56 @@ AppAsset::register($this);
     <a class="next" href="#main-slider" data-slide="next"><i class="icon-angle-right"></i></a>
 </section><!--/#main-slider-->
 
-<section id="services">
+<section id="students">
     <div class="container">
         <div class="box first">
+            <div class="center gap">
+                <h2>Студентам</h2>
+            </div><!--/.center-->
             <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-apple icon-md icon-color1"></i>
+                        <h4>iOS development</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-android icon-md icon-color2"></i>
+                        <h4>Android development</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-windows icon-md icon-color3"></i>
+                        <h4>Windows Phone development</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-html5 icon-md icon-color4"></i>
+                        <h4>Ruby on Rails development</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-css3 icon-md icon-color5"></i>
+                        <h4>Javascript development</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="center">
+                        <i class="icon-thumbs-up icon-md icon-color6"></i>
+                        <h4>Responsive web design</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                    </div>
+                </div><!--/.col-md-4-->
+            </div><!--/.row--><div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="center">
                         <i class="icon-apple icon-md icon-color1"></i>
@@ -123,7 +181,7 @@ AppAsset::register($this);
     </div><!--/.container-->
 </section><!--/#services-->
 
-<section id="portfolio">
+<section id="abiturients">
     <div class="container">
         <div class="box">
             <div class="center gap">
@@ -230,7 +288,7 @@ AppAsset::register($this);
     </div><!--/.container-->
 </section><!--/#portfolio-->
 
-<section id="pricing">
+<section id="news">
     <div class="container">
         <div class="box">
             <div class="center">
