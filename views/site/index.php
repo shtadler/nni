@@ -27,10 +27,11 @@ use romkaChev\yii2\swiper\Swiper;
 <section id="students">
     <div class="container">
         <div class="box first">
+        
             <div class="center gap">
                 <h2>Студентам</h2>
             </div><!--/.center-->
-            <div class="row row-flex">
+            <div class="row">
                 <div class="col-sm-8">
                 <div class="col-sm-12">
                     <h3>Новини <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>

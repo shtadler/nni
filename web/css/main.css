@@ -188,7 +188,7 @@ a:focus {
   border-radius: 0 0 5px 5px;
 }
 .box h2 {
-  padding: 10px 30px;
+  padding: 10px 0;
   display: inline-block;
   border-radius: 4px;
   position: relative;
@@ -637,11 +637,6 @@ textarea#message {
 
 hr {
   margin-top: 0;
-}
-
-.row-flex {
-    display: flex;
-    flex-flow: row wrap;
 }
 
 .dropdown-menu {
