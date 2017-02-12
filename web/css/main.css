@@ -19,6 +19,13 @@ a {
   -o-transition: 300ms;
   transition: 300ms;
 }
+section.first {
+  margin-top: 100px
+}
+section.first .box {
+  border-radius: 5px;
+}
+
 .text-uppercase {
   text-transform: uppercase !important;
 }

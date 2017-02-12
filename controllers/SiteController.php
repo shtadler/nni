@@ -56,6 +56,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'site';
         $studentItems = [
                         '<div class="student-block">
                     <div class="center">

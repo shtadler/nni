@@ -40,8 +40,8 @@ AppAsset::register($this);
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><?= Html::a('<i class="icon-home"></i>', ['site/index', '#' => 'main-slider']) ?></li>
-                    <li><?= Html::a('Студентам', ['site/index', '#' => 'students']) ?></li>
+                    <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
+                    <li><a href="#students">Студентам</a></li>
                     <li><a href="#abiturients">Абітуриєнтам</a></li>
                     <li><a href="#contact">Контакти</a></li>
                     <li class="dropdown">

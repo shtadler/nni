@@ -10,6 +10,7 @@ use app\models\LoginForm;
 
 class AdminController extends Controller
 {
+    public $layout = 'admin';
 
     public function behaviors()
     {

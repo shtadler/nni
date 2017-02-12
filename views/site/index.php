@@ -1,5 +1,8 @@
 <?php
 use romkaChev\yii2\swiper\Swiper;
+use app\assets\SiteIndexAsset;
+
+SiteIndexAsset::register($this);
 ?>
 <section id="main-slider" class="carousel">
     <div class="carousel-inner">
@@ -24,9 +27,9 @@ use romkaChev\yii2\swiper\Swiper;
     <a class="next" href="#main-slider" data-slide="next"><i class="icon-angle-right"></i></a>
 </section><!--/#main-slider-->
 
-<section id="students">
+<section>
     <div class="container">
-        <div class="box first">
+        <div id="students" class="box first">
         
             <div class="center gap">
                 <h2>Студентам</h2>
