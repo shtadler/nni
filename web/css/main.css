@@ -141,6 +141,17 @@ a:focus {
   text-shadow: 0 3px rgba(0, 0, 0, 0.1);
   color: #fff;
 }
+@media(max-width:767px) {
+ #main-slider h1 {
+  font-size: 42px;
+}
+}
+#abiturients {
+  margin-top: 15px
+}
+#abiturients .box {
+border-radius: 5px 5px 0 0;
+}
 #contact .box {
   background-color: #222;
   color: #999;
@@ -182,7 +193,7 @@ a:focus {
 }
 .box.first {
   margin-top: -40px;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
 }
 .box.last {
   border-radius: 0 0 5px 5px;
