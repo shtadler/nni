@@ -13,8 +13,9 @@ AppAsset::register($this);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="УНІВЕРСИТЕТ ДЕРЖАВНОЇ ФІСКАЛЬНОЇ СЛУЖБИ УКРАЇНИ ВІННИЦЬКИЙ НАВЧАЛЬНО-НАУКОВИЙ ІНСТИТУТ - учбовий заклад">
+    <meta name="Keywords" content="ВННІДФСУ, університет державної фіскальної служби україни вінницький навчально-науковий інститут, налоговий, податковий"> 
+    <meta name="author" content="Andrii Shtadler">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
