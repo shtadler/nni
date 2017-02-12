@@ -30,254 +30,113 @@ use romkaChev\yii2\swiper\Swiper;
             <div class="center gap">
                 <h2>Студентам</h2>
             </div><!--/.center-->
-            <div class="row">
-                <?php
-                echo Swiper::widget( [
-                    'items'         => [
-                        '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                    ],
+            <div class="row row-flex">
+                <div class="col-sm-8">
+                <div class="col-sm-12">
+                    <h3>Новини <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                    <hr>
+                </div>
+                <?= Swiper::widget( [
+                    'items'         => $studentItems,
                     'behaviours'    => [
                         Swiper::BEHAVIOUR_NEXT_BUTTON,
                         Swiper::BEHAVIOUR_PREV_BUTTON
                     ],
                     'pluginOptions' => [
-                        Swiper::OPTION_SLIDES_PER_VIEW      => 3,
-                        Swiper::OPTION_PAGINATION_CLICKABLE => true,
-                        Swiper::OPTION_SPACE_BETWEEN        => 30,
-                        Swiper::OPTION_LOOP                 => true,
+                        Swiper::OPTION_SLIDES_PER_VIEW      => 2,
+                        Swiper::OPTION_SPACE_BETWEEN        => 15,
                         Swiper::OPTION_SLIDES_PER_COLUMN => 2
                     ]
                 ] );
                 ?>
+                </div>
+                <div class="col-sm-4 row">
+                <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                <hr>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                        </div>
+                    </div>
+                </div>
             </div><!--/.row-->
         </div><!--/.box-->
     </div><!--/.container-->
-</section><!--/#services-->
 
+</section><!--/#services-->
 <section id="abiturients">
     <div class="container">
         <div class="box">
             <div class="center gap">
-                <h2>Portfolio</h2>
-                <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac<br>turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                <h2>Абітурієнтам</h2>
             </div><!--/.center-->
-            <ul class="portfolio-filter">
-                <li><a class="btn btn-primary active" href="#" data-filter="*">All</a></li>
-                <li><a class="btn btn-primary" href="#" data-filter=".bootstrap">Bootstrap</a></li>
-                <li><a class="btn btn-primary" href="#" data-filter=".html">HTML</a></li>
-                <li><a class="btn btn-primary" href="#" data-filter=".wordpress">Wordpress</a></li>
-            </ul><!--/#portfolio-filter-->
-            <ul class="portfolio-items col-4">
-                <li class="portfolio-item apps">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item1.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item1.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
+            <div class="row row-flex">
+                <div class="col-sm-8">
+                <div class="col-sm-12">
+                    <h3>Інформація <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                    <hr>
+                </div>
+                <?= Swiper::widget( [
+                    'items'         => $studentItems,
+                    'behaviours'    => [
+                        Swiper::BEHAVIOUR_NEXT_BUTTON,
+                        Swiper::BEHAVIOUR_PREV_BUTTON
+                    ],
+                    'pluginOptions' => [
+                        Swiper::OPTION_SLIDES_PER_VIEW      => 2,
+                        Swiper::OPTION_SPACE_BETWEEN        => 15,
+                        Swiper::OPTION_SLIDES_PER_COLUMN => 2
+                    ]
+                ] );
+                ?>
+                </div>
+                <div class="col-sm-4 row">
+                <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                <hr>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item joomla bootstrap">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item2.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item2.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item bootstrap wordpress">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item3.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item3.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item joomla wordpress apps">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item4.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item4.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item joomla html">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item5.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item5.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
-                        </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item wordpress html">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item6.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item6.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
-                        </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item joomla html">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item5.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item5.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
-                        </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-                <li class="portfolio-item wordpress html">
-                    <div class="item-inner">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/thumb/item6.jpg" alt="">
-                            <div class="overlay">
-                                <a class="preview btn btn-danger" title="Lorem ipsum dolor sit amet" href="images/portfolio/full/item6.jpg"><i class="icon-eye-open"></i></a>
-                            </div>
-                        </div>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                    </div>
-                </li><!--/.portfolio-item-->
-            </ul>
-        </div><!--/.box-->
-    </div><!--/.container-->
-</section><!--/#portfolio-->
-
-<section id="about-us">
-    <div class="container">
-        <div class="box">
-            <div class="center">
-                <h2>Meet the Team</h2>
-                <p class="lead">Pellentesque habitant morbi tristique senectus et netus et<br>malesuada fames ac turpis egestas.</p>
-            </div>
-            <div class="gap"></div>
-            <div id="team-scroller" class="carousel scale">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team1.jpg" alt="" ></p>
-                                    <h3>Agnes Smith<small class="designation">CEO &amp; Founder</small></h3>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team2.jpg" alt="" ></p>
-                                    <h3>Donald Ford<small class="designation">Senior Vice President</small></h3>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team3.jpg" alt="" ></p>
-                                    <h3>Karen Richardson<small class="designation">Assitant Vice President</small></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team3.jpg" alt="" ></p>
-                                    <h3>David Robbins<small class="designation">Co-Founder</small></h3>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team1.jpg" alt="" ></p>
-                                    <h3>Philip Mejia<small class="designation">Marketing Manager</small></h3>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="member">
-                                    <p><img class="img-responsive img-thumbnail img-circle" src="images/team2.jpg" alt="" ></p>
-                                    <h3>Charles Erickson<small class="designation">Support Manager</small></h3>
-                                </div>
-                            </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
                     </div>
                 </div>
-                <a class="left-arrow" href="#team-scroller" data-slide="prev">
-                    <i class="icon-angle-left icon-4x"></i>
-                </a>
-                <a class="right-arrow" href="#team-scroller" data-slide="next">
-                    <i class="icon-angle-right icon-4x"></i>
-                </a>
-            </div><!--/.carousel-->
+            </div><!--/.row-->
         </div><!--/.box-->
     </div><!--/.container-->
-</section><!--/#about-us-->
+</section><!--/#portfolio-->
 
 <section id="contact">
     <div class="container">
@@ -287,7 +146,7 @@ use romkaChev\yii2\swiper\Swiper;
                     <iframe src="https://www.google.com/maps/d/embed?mid=1JiBtcFWDQQieItPlUwuzQCusFkk" width="100%" height="100%"></iframe>
                 </div><!--/.col-sm-6-->
                 <div class="col-sm-6">
-                    <h1>Our Address</h1>
+                    <h1>Наша адреса</h1>
                     <div class="row">
                         <div class="col-md-6">
                             <address>

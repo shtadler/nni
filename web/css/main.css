@@ -535,9 +535,6 @@ a:focus {
 .icon-color6 {
   background-color: #2c3e50;
 }
-.gap {
-  margin-bottom: 50px;
-}
 .big-gap {
   margin-bottom: 100px;
 }
@@ -624,4 +621,29 @@ textarea#message {
 
 .gmap-holder {
   height: 480px;
+}
+
+.student-block {
+    padding: 5px;
+}
+
+.list-group {
+      padding-left: 0;
+    margin-bottom: 20px;
+    border-left: 4px solid #cecece;
+    border-radius: 8px;
+    box-shadow: 3px 4px 14px -7px rgba(0,0,0,.4);
+}
+
+hr {
+  margin-top: 0;
+}
+
+.row-flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.dropdown-menu {
+  min-width: 222px;
 }

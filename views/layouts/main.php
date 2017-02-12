@@ -44,7 +44,8 @@ AppAsset::register($this);
                     <li><a href="#abiturients">Абітуриєнтам</a></li>
                     <li><a href="#contact">Контакти</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Важливо знати <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загальна інформація 
+                        <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -65,9 +66,9 @@ AppAsset::register($this);
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <a target="_blank" href="https://www.nusta.edu.ua/" title="Головне відділення">Головне відділення</a>.
+                Головне відділення: <a target="_blank" href="https://www.nusta.edu.ua/" title="Головне відділення">https://www.nusta.edu.ua/</a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-right">
                 &copy; <?= date('Y')?> ВВІ ДПСУ. Всі права захищені.
             </div>
         </div>

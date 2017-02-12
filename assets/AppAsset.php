@@ -22,13 +22,10 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/main.css',
         'css/font-awesome.min.css',
-        'css/prettyPhoto.css',
     ];
     public $js = [
         'js/bootstrap.min.js',
         'js/html5shiv.js',
-        'js/jquery.isotope.min.js',
-        'js/jquery.prettyPhoto.js',
         'js/respond.min.js',
         'js/main.js',
     ];
