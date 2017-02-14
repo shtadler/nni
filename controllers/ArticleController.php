@@ -111,7 +111,10 @@ class ArticleController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $furl = $model->furl;
+        $model->delete();
+        $furl->delete();
 
         return $this->redirect(['index']);
     }

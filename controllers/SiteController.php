@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Article;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -57,11 +58,21 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'site';
+        $sArticles = Article::find()->where(['for_students' => 1])->all();
+        $aArticles = Article::find()->where(['for_abitur' => 1])->all();
         $studentItems = [];
-        for($i = 1; $i < 10; $i++) {
-            $studentItems[$i] = $this->view->render('/site/_articlePreview');
+        $abiturItems = [];
+        if($sArticles) {
+            foreach ($sArticles as $sArticle) {
+                $studentItems[] = $this->view->render('/site/_swiperBody', ['article' => $sArticle]);
+            }
         }
-        return $this->render('index', ['studentItems' => $studentItems]);
+        if($aArticles) {
+            foreach ($aArticles as $aArticle) {
+                $abiturItems[] = $this->view->render('/site/_swiperBody', ['article' => $aArticle]);
+            }
+        }
+        return $this->render('index', ['studentItems' => $studentItems, 'abiturItems' => $abiturItems]);
     }
 
     public function actionLogin()

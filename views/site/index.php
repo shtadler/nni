@@ -1,4 +1,9 @@
 <?php
+/**
+ * @var $this \yii\web\View
+ * @var $studentItems \app\models\Article[]|array
+ * @var $abiturItems \app\models\Article[]|array
+ */
 use romkaChev\yii2\swiper\Swiper;
 use app\assets\SiteIndexAsset;
 
@@ -98,7 +103,7 @@ SiteIndexAsset::register($this);
                     <hr>
                 </div>
                 <?= Swiper::widget( [
-                    'items'         => $studentItems,
+                    'items'         => $abiturItems,
                     'behaviours'    => [
                         Swiper::BEHAVIOUR_NEXT_BUTTON,
                         Swiper::BEHAVIOUR_PREV_BUTTON
