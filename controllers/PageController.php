@@ -3,18 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\User;
-use app\models\AdminUserSearch;
+use app\models\Page;
+use app\models\PageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AdminUserController implements the CRUD actions for User model.
+ * PageController implements the CRUD actions for Page model.
  */
-class AdminUserController extends Controller
+class PageController extends Controller
 {
-    public $layout = 'admin';
     /**
      * @inheritdoc
      */
@@ -31,12 +30,12 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Lists all User models.
+     * Lists all Page models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AdminUserSearch();
+        $searchModel = new PageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Displays a single User model.
+     * Displays a single Page model.
      * @param integer $id
      * @return mixed
      */
@@ -58,17 +57,15 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Creates a new User model.
+     * Creates a new Page model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new User(['scenario' => 'create']);
+        $model = new Page();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->generateAuthKey();
-            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -78,7 +75,7 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Updates an existing User model.
+     * Updates an existing Page model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,18 +83,18 @@ class AdminUserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->scenario = 'update';
-        if($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
-     * Deletes an existing User model.
+     * Deletes an existing Page model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +107,15 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Finds the User model based on its primary key value.
+     * Finds the Page model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return User the loaded model
+     * @return Page the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = Page::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

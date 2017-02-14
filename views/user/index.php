@@ -32,7 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'status',
                 'class' => 'app\components\StatusColumn'
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'delete' => function ($model, $key, $index) {
+                        return $model->id === \app\models\User::SUPER_USER_ID ? false : true;
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

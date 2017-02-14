@@ -1,4 +1,4 @@
-jQuery(function($) {
+$(function($) {
 
 	$(function(){
 		$('#main-slider.carousel').carousel({

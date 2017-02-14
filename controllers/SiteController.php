@@ -57,100 +57,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'site';
-        $studentItems = [
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>', '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                        '<div class="student-block">
-                    <div class="center">
-                        <i class="icon-apple icon-md icon-color1"></i>
-                        <h4>iOS development</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                </div>',
-                    ];
+        $studentItems = [];
+        for($i = 1; $i < 10; $i++) {
+            $studentItems[$i] = $this->view->render('/site/_articlePreview');
+        }
         return $this->render('index', ['studentItems' => $studentItems]);
     }
 
