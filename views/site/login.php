@@ -48,6 +48,6 @@ $this->title = 'Login';
         </div><!--/.box-->
     </div><!--/.container-->
 
-
+</section>
     
 

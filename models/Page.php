@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "page".
@@ -20,6 +21,16 @@ use Yii;
  */
 class Page extends \yii\db\ActiveRecord
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
     /**
      * @inheritdoc
      */

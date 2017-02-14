@@ -2,6 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 use app\assets\AdminAsset;
+use yii\bootstrap\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -45,14 +46,24 @@ AdminAsset::register($this);
     ?>
 
     <div class="container-fluid">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        <?php
+        echo Breadcrumbs::widget([
+            'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             'homeLink' => [
                 'label' => 'Home',
-                'url' => ['admin/index'],
+                'url'   => ['admin/index'],
             ],
-        ]) ?>
-        <?= $content ?>
+        ]);
+        if($msg = Yii::$app->session->getFlash('alert')) {
+            echo Alert::widget([
+                'options' => [
+                    'class' => 'alert-info',
+                ],
+                'body'    => $msg,
+            ]);
+        }
+        echo $content
+        ?>
     </div>
     </div>
 </div>

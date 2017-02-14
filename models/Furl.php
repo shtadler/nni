@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "furl".
@@ -24,7 +25,14 @@ class Furl extends \yii\db\ActiveRecord
     {
         return 'furl';
     }
-
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -45,8 +53,8 @@ class Furl extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
+            'title' => 'Заголовок сторінки',
+            'description' => 'Опис сторінки',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

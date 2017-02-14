@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Furl;
 use Yii;
 use app\models\Article;
 use app\models\ArticleSearch;
@@ -66,14 +67,19 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $furl = new Furl();
+        $post = Yii::$app->request->post();
+        if ($model->load($post) && $furl->load($post) && $furl->save()) {
+            $model->furl_id = $furl->id;
+            $message = $model->save() ? 'Збереженно' : 'Помилка';
+            Yii::$app->session->setFlash('alert', $message);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+            'furl' => $furl,
+        ]);
+
     }
 
     /**
@@ -85,14 +91,16 @@ class ArticleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        $post = Yii::$app->request->post();
+        if($model->load($post) && $model->furl->load($post) && $model->furl->save()) {
+            $message = $model->save() ? 'Збереженно' : 'Помилка';
+            Yii::$app->session->setFlash('alert', $message);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+            'furl' => $model->furl
+        ]);
     }
 
     /**

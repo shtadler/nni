@@ -1,43 +1,26 @@
 <?php
+/**
+ * @var $this yii\web\View
+ * @var $model app\models\Article
+ */
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Article */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-view">
+<section class="first">
+    <div class="container">
+        <div class="box">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <div class="center gap">
+                <h1><?= Html::encode($model->title) ?></h1>
+            </div><!--/.center-->
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+            <?= $model->text?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'for_students',
-            'for_abitur',
-            'description:ntext',
-            'text:ntext',
-            'furl_id:url',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
+        </div><!--/.box-->
+    </div><!--/.container-->
 
-</div>
+</section>
+
+

@@ -10,12 +10,13 @@ $this->title = 'Create Article';
 $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-create">
+<div class="article-create  container-fluid">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'furl' => $furl
     ]) ?>
 
 </div>
