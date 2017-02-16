@@ -22,8 +22,8 @@ SiteIndexAsset::register($this);
         <div class="item">
             <div class="container">
                 <div class="carousel-content">
-                    <h1>ShapeBootstrap.net</h1>
-                    <p class="lead">Download free but 100% premium quaility twitter Bootstrap based WordPress and HTML themes <br>from shapebootstrap.net</p>
+                    <h1>Lorem ipsum.</h1>
+                    <p class="lead">Lorem ipsum dolor sit amet.</p>
                 </div>
             </div>
         </div><!--/.item-->

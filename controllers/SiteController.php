@@ -57,7 +57,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = 'site';
+        $this->layout = 'index';
         $sArticles = Article::find()->where(['for_students' => 1])->all();
         $aArticles = Article::find()->where(['for_abitur' => 1])->all();
         $studentItems = [];

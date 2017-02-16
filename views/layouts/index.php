@@ -17,7 +17,7 @@ AppAsset::register($this);
     <meta name="Keywords" content="ВННІДФСУ, університет державної фіскальної служби україни вінницький навчально-науковий інститут, налоговий, податковий"> 
     <meta name="author" content="Andrii Shtadler">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Університет державної фіскальної служби України</title>
     <?php $this->head() ?>
 </head><!--/head-->
 

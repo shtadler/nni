@@ -6,6 +6,7 @@ use app\models\Furl;
 use Yii;
 use app\models\Article;
 use app\models\ArticleSearch;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -54,8 +55,16 @@ class ArticleController extends Controller
     public function actionView($id)
     {
         $this->layout = 'main';
+        $article = $this->findModel($id);
+
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => Html::encode($article->furl->description)
+        ]);
+        $this->view->title = Html::encode($article->furl->title);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $article,
         ]);
     }
 
