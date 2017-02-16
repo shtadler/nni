@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Furl;
 use Yii;
 use app\models\Page;
 use app\models\PageSearch;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class PageController extends Controller
 {
+    public $layout = 'admin';
     /**
      * @inheritdoc
      */
@@ -51,8 +54,17 @@ class PageController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout = 'main';
+
+        $page = $this->findModel($id);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => Html::encode($page->furl->description)
+        ]);
+        $this->view->title = Html::encode($page->furl->title);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $page,
         ]);
     }
 
@@ -64,14 +76,19 @@ class PageController extends Controller
     public function actionCreate()
     {
         $model = new Page();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $furl = new Furl();
+        $post = Yii::$app->request->post();
+        if ($model->load($post) && $furl->load($post) && $furl->save()) {
+            $model->furl_id = $furl->id;
+            $message = $model->save() ? 'Збереженно' : 'Помилка';
+            Yii::$app->session->setFlash('alert', $message);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+            'furl' => $furl,
+        ]);
+
     }
 
     /**
@@ -83,14 +100,16 @@ class PageController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        $post = Yii::$app->request->post();
+        if($model->load($post) && $model->furl->load($post) && $model->furl->save()) {
+            $message = $model->save() ? 'Збереженно' : 'Помилка';
+            Yii::$app->session->setFlash('alert', $message);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+            'furl' => $model->furl
+        ]);
     }
 
     /**

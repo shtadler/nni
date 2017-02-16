@@ -22,14 +22,6 @@ use yii\behaviors\TimestampBehavior;
 class Page extends \yii\db\ActiveRecord
 {
 
-    /**
-     * @inheritdoc
-     */
-    public function behaviors() {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -47,8 +39,6 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['to_dropdown', 'to_submenu', 'furl_id'], 'integer'],
             [['text'], 'string'],
-            [['furl_id'], 'required'],
-            [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['furl_id'], 'exist', 'skipOnError' => true, 'targetClass' => Furl::className(), 'targetAttribute' => ['furl_id' => 'id']],
         ];
@@ -77,14 +67,5 @@ class Page extends \yii\db\ActiveRecord
     public function getFurl()
     {
         return $this->hasOne(Furl::className(), ['id' => 'furl_id']);
-    }
-
-    /**
-     * @inheritdoc
-     * @return FurlQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new FurlQuery(get_called_class());
     }
 }

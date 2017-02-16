@@ -24,16 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'title',
-            'for_students',
-            'for_abitur',
             'description:ntext',
-            // 'text:ntext',
-            // 'furl_id:url',
-            // 'created_at',
-            // 'updated_at',
-
+            'furl.title',
+            'furl.description',
+            [
+                'attribute' => 'for_students',
+                'class' => 'app\components\StatusColumn'
+            ],
+            [
+                'attribute' => 'for_abitur',
+                'class' => 'app\components\StatusColumn'
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

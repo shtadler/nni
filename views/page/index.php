@@ -23,16 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'title',
-            'to_dropdown',
-            'to_submenu',
-            'text:ntext',
-            // 'furl_id:url',
-            // 'created_at',
-            // 'updated_at',
-
+            'furl.title',
+            'furl.description',
+            [
+                'attribute' => 'to_dropdown',
+                'class' => 'app\components\StatusColumn'
+            ],
+            [
+                'attribute' => 'to_submenu',
+                'class' => 'app\components\StatusColumn'
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

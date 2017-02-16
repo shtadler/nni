@@ -28,7 +28,7 @@ $this->title = 'My Yii Application';
 
                 <p>Этот раздел служит для управления одиночними страницами и ссылками на них в меню и подменю.</p>
 
-                <p><?= Html::a('Перейти &raquo;', [''], ['class' => 'btn btn-default'])?></p>
+                <p><?= Html::a('Перейти &raquo;', ['page/index'], ['class' => 'btn btn-default'])?></p>
             </div>
             <div class="col-md-3">
                 <h2>Документы</h2>

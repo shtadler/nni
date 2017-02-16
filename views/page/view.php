@@ -6,37 +6,18 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Page */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-view">
+<section class="first">
+    <div class="container">
+        <div class="box">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <div class="center gap">
+                <h1><?= Html::encode($model->title) ?></h1>
+            </div><!--/.center-->
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+            <?= $model->text?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'to_dropdown',
-            'to_submenu',
-            'text:ntext',
-            'furl_id:url',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
+        </div><!--/.box-->
+    </div><!--/.container-->
 
-</div>
+</section>
