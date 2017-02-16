@@ -58,6 +58,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['email','required'],
             ['username','required'],
             ['email', 'email'],
+            ['pass', 'safe'],
             ['pass', 'required', 'on' => 'create'],
         ];
     }
@@ -182,7 +183,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function beforeSave($insert) {
         if(!empty($this->pass)) {
-            $this->password = $this->pass;
+            $this->setPassword($this->pass);
         }
         return parent::beforeSave($insert);
     }
