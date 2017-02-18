@@ -65,7 +65,7 @@ SiteIndexAsset::register($this);
                     <div class="list-group">
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
+                            <p class="list-group-item-text">Розмір: 123 kb <a href="/uploads/XZcj-9U73Lz2yx7CFnYE5OXppgQ80QnN.pdf"  class="glyphicon glyphicon-download-alt pull-right"></a></p>
                         </div>
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">List group item heading</h4>

@@ -67,4 +67,12 @@ class Furl extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Article::className(), ['furl_id' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPages()
+    {
+        return $this->hasMany(Page::className(), ['furl_id' => 'id']);
+    }
 }

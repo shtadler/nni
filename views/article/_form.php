@@ -1,6 +1,7 @@
 <?php
-
+use kartik\file\FileInput;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 
@@ -12,7 +13,9 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="article-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options'=>['enctype'=>'multipart/form-data'] // important
+    ]); ?>
     <div class="row">
         <div class="col-sm-4">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
@@ -44,6 +47,23 @@ use dosamigos\tinymce\TinyMce;
             ]
         ]);?>
         </div>
+        <div class="col-sm-12">
+        <?php
+            echo '<br><label>Документы</label>';
+            echo FileInput::widget([
+                'model' => $model,
+                'attribute' => 'file[]',
+                'options' => ['multiple' => true],
+                'pluginOptions' => [
+                    'initialPreview'=> $model->initialPreview,
+                    'initialPreviewAsData'=>true,
+                    'initialPreviewConfig' => $model->initialPreviewConfig,
+                    'overwriteInitial'=>false,
+                    'maxFileSize'=>4000,
+                ]
+            ]);
+            ?>
+            </div>
         <div class="col-sm-12">
             <h2>Url</h2>
         </div>

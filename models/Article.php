@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "article".
@@ -19,10 +20,14 @@ use yii\behaviors\TimestampBehavior;
  * @property string $updated_at
  *
  * @property Furl $furl
+ * @property Document[] $documents
+ * @property array $initialPreview
+ * @property array $initialPreviewConfig
  */
 class Article extends \yii\db\ActiveRecord
 {
 
+    public $file;
     /**
      * @inheritdoc
      */
@@ -81,4 +86,49 @@ class Article extends \yii\db\ActiveRecord
         return $this->hasOne(Furl::className(), ['id' => 'furl_id']);
     }
 
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDocuments()
+    {
+        return $this->hasMany(Document::className(), ['entity_id' => 'id'])->where(['entity_name' => Document::ARTICLE]);
+    }
+
+    public function getInitialPreview()
+    {
+        if($this->isNewRecord) {
+            return null;
+        }
+
+        $previews = [];
+        foreach ($this->documents as $document) {
+            $previews[] = Yii::getAlias("@web/uploads/{$document->hash_name}.{$document->extension}");
+        }
+        return $previews;
+    }
+
+    public function getInitialPreviewConfig()
+    {
+        if($this->isNewRecord) {
+            return null;
+        }
+        $conf = [];
+        foreach ($this->documents as $document) {
+            $type = 'other';
+            if(explode('/',$document->mime)[0] == 'image') {
+                $type = 'image';
+            } elseif($document->mime == 'application/pdf') {
+                $type = 'pdf';
+            }
+            $conf[] = [
+                'type' => $type,
+                'caption' => $document->name,
+                'size' => $document->size,
+                'url' => Url::to(['article/delete-document', 'hash'=> $document->hash_name])
+            ];
+        }
+
+        return $conf;
+    }
 }

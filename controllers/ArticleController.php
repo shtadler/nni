@@ -2,14 +2,17 @@
 
 namespace app\controllers;
 
+use app\models\Document;
 use app\models\Furl;
 use Yii;
 use app\models\Article;
 use app\models\ArticleSearch;
 use yii\helpers\Html;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -27,6 +30,7 @@ class ArticleController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'delete-document' => ['POST'],
                 ],
             ],
         ];
@@ -80,7 +84,7 @@ class ArticleController extends Controller
         $post = Yii::$app->request->post();
         if ($model->load($post) && $furl->load($post) && $furl->save()) {
             $model->furl_id = $furl->id;
-            $message = $model->save() ? 'Збереженно' : 'Помилка';
+            $message = $this->saveArticle($model);
             Yii::$app->session->setFlash('alert', $message);
         }
 
@@ -91,6 +95,17 @@ class ArticleController extends Controller
 
     }
 
+    public function actionDeleteDocument($hash)
+    {
+        /** @var Document $document */
+        if($document = Document::find()->where(['hash_name' => $hash])->one()) {
+            unlink(Yii::getAlias("@webroot/uploads/{$document->hash_name}.{$document->extension}"));
+            $document->delete();
+            return true;
+        }
+
+        return Json::encode(['error' => 'Виникла помилка']);
+    }
     /**
      * Updates an existing Article model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -102,7 +117,8 @@ class ArticleController extends Controller
         $model = $this->findModel($id);
         $post = Yii::$app->request->post();
         if($model->load($post) && $model->furl->load($post) && $model->furl->save()) {
-            $message = $model->save() ? 'Збереженно' : 'Помилка';
+
+            $message = $this->saveArticle($model);
             Yii::$app->session->setFlash('alert', $message);
         }
 
@@ -142,5 +158,35 @@ class ArticleController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * @param Article $model
+     * @return string
+     */
+    private function saveArticle($model) {
+        $message =  'Помилка';
+        if($model->save()) {
+            $message = 'Збереженно';
+            foreach (UploadedFile::getInstances($model, 'file') as $instance) {
+                $hashName = Yii::$app->security->generateRandomString();
+                $fileName = 'uploads/' . $hashName . '.' . $instance->extension;
+                if($instance->saveAs($fileName)) {
+                    $document = new Document();
+                    $document->entity_id = $model->id;
+                    $document->entity_name = Document::ARTICLE;
+                    $document->name = "{$instance->baseName}.{$instance->extension}";
+                    $document->hash_name = $hashName;
+                    $document->size = $instance->size;
+                    $document->extension = $instance->extension;
+                    $document->mime = $instance->type;
+                    $document->save();
+                }
+            }
+
+            return $message;
+        }
+
+        return $message;
     }
 }
