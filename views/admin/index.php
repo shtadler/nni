@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Admin';
 ?>
 <div class="site-index">
     <div class="body-content">
@@ -40,12 +40,20 @@ $this->title = 'My Yii Application';
         </div>
         <div class="container-fluid row">
             <div class="col-md-3">
+                <h2>Слайдер</h2>
+
+                <p>Служит для управления слайдами на главной странице.</p>
+
+                <p><?= Html::a('Перейти &raquo;', ['main-slider/index'], ['class' => 'btn btn-default'])?></p>
+            </div>
+            <div class="col-md-3">
                 <h2>Контент</h2>
 
                 <p>Служит для управления контентом (текстом) на сайте</p>
 
                 <p><?= Html::a('Перейти &raquo;', ['content/index'], ['class' => 'btn btn-default'])?></p>
             </div>
+
         </div>
     </div>
 </div>

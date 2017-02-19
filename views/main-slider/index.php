@@ -4,28 +4,33 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\DocumentSearch */
+/* @var $searchModel app\models\MainSliderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Documents';
+$this->title = 'Main Sliders';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="document-index">
+<div class="main-slider-index">
+
+    <p class="text-right">
+        <?= Html::a('Create slider', ['create'], ['class' => 'btn btn-lg btn-success']) ?>
+    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            'id',
-            'entity_id',
-            'entity_name',
-            'name',
-            'size',
+            'title',
+            'description:html',
+            [
+                'attribute' => 'status',
+                'class' => 'app\components\StatusColumn'
+            ],
+
             [
                 'class' => 'yii\grid\ActionColumn',
                 'visibleButtons' => [
                     'view' => false,
-                    'update' => false,
                 ]
             ],
         ],
