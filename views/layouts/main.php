@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this \app\components\View */
 /* @var $content string */
 use yii\helpers\Html;
 use app\assets\AppAsset;
@@ -46,13 +46,11 @@ AppAsset::register($this);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загальна інформація 
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <?php foreach($this->getPages() as $page) : ?>
+                                <li>
+                                    <?= Html::a(Html::encode($page->title), ['page/view', 'id' => $page->id])?>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
                 </ul>

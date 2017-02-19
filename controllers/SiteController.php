@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\Document;
+use app\models\Page;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -75,11 +76,13 @@ class SiteController extends Controller
             ->andWhere(['article.for_abitur' => 1])
             ->limit(5)
             ->all();
+        $submenu = Page::find()->where(['to_submenu' => 1])->all();
         return $this->render('index', [
             'studentItems' => $studentItems,
             'abiturItems' => $abiturItems,
             'studentFiles' => $studentFiles,
             'abiturFiles' => $abiturFiles,
+            'submenu' => $submenu,
         ]);
     }
 

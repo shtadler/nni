@@ -5,9 +5,12 @@
  * @var $abiturItems \app\models\Article[]|array
  * @var $abiturFiles \app\models\Document[]
  * @var $studentFiles \app\models\Document[]
+ * @var $submenu \app\models\Page[]
  */
 use romkaChev\yii2\swiper\Swiper;
 use app\assets\SiteIndexAsset;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
 SiteIndexAsset::register($this);
@@ -38,16 +41,20 @@ SiteIndexAsset::register($this);
 <section>
     <div class="container">
         <div id="students" class="box first">
-        
+            <div class="row submenu">
+                <?php foreach ($submenu as $item) {
+                    echo Html::a(Html::encode($item->title), ['page/view', 'id' => $item->id], [
+                        'class' => 'submenu-item'
+                    ]);
+                } ?>
+            </div>
             <div class="center gap">
                 <h2>Студентам</h2>
             </div><!--/.center-->
             <div class="row">
                 <div class="col-sm-8">
-                <div class="col-sm-12">
                     <h3>Новини <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
                     <hr>
-                </div>
                 <?= Swiper::widget( [
                     'items'         => $studentItems,
                     'behaviours'    => [
@@ -93,10 +100,8 @@ SiteIndexAsset::register($this);
             </div><!--/.center-->
             <div class="row row-flex">
                 <div class="col-sm-8">
-                <div class="col-sm-12">
                     <h3>Інформація <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
                     <hr>
-                </div>
                 <?= Swiper::widget( [
                     'items'         => $abiturItems,
                     'behaviours'    => [
