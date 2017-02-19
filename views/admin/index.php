@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
     <div class="body-content">
 
-        <div class="container-fluid">
+        <div class="container-fluid row">
             <div class="col-md-3">
                 <h2>Администраторы</h2>
 
@@ -38,6 +38,14 @@ $this->title = 'My Yii Application';
                 <p><?= Html::a('Перейти &raquo;', ['document/index'], ['class' => 'btn btn-default'])?></p>
             </div>
         </div>
+        <div class="container-fluid row">
+            <div class="col-md-3">
+                <h2>Контент</h2>
 
+                <p>Служит для управления контентом (текстом) на сайте</p>
+
+                <p><?= Html::a('Перейти &raquo;', ['content/index'], ['class' => 'btn btn-default'])?></p>
+            </div>
+        </div>
     </div>
 </div>

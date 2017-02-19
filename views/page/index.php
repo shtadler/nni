@@ -22,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
             'title',
             'furl.title',
             'furl.description',
@@ -34,7 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'to_submenu',
                 'class' => 'app\components\StatusColumn'
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn'
+            ],
         ],
     ]); ?>
 </div>

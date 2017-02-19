@@ -6,6 +6,8 @@
  * @var $abiturFiles \app\models\Document[]
  * @var $studentFiles \app\models\Document[]
  * @var $submenu \app\models\Page[]
+ * @var $firstAddress string
+ * @var $secondAddress string
  */
 use app\models\Article;
 use romkaChev\yii2\swiper\Swiper;
@@ -184,18 +186,12 @@ SiteIndexAsset::register($this);
                     <div class="row">
                         <div class="col-md-6">
                             <address>
-                                <strong>Twitter, Inc.</strong><br>
-                                795 Folsom Ave, Suite 600<br>
-                                San Francisco, CA 94107<br>
-                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                                <?= $firstAddress ?>
                             </address>
                         </div>
                         <div class="col-md-6">
                             <address>
-                                <strong>Twitter, Inc.</strong><br>
-                                795 Folsom Ave, Suite 600<br>
-                                San Francisco, CA 94107<br>
-                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                                <?= $secondAddress ?>
                             </address>
                         </div>
                     </div>

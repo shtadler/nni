@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\Content;
 use app\models\Document;
 use app\models\Page;
 use Yii;
@@ -78,12 +79,16 @@ class SiteController extends Controller
             ->limit(5)
             ->all();
         $submenu = Page::find()->where(['to_submenu' => 1])->all();
+        $firstAddress = Content::find()->where(['id' => Content::FIRST_ADDRESS])->one();
+        $secondAddress = Content::find()->where(['id' => Content::SECOND_ADDRESS])->one();
         return $this->render('index', [
             'studentItems' => $studentItems,
             'abiturItems' => $abiturItems,
             'studentFiles' => $studentFiles,
             'abiturFiles' => $abiturFiles,
             'submenu' => $submenu,
+            'firstAddress' => $firstAddress,
+            'secondAddress' => $secondAddress,
         ]);
     }
 
