@@ -8,6 +8,7 @@
  * @var $submenu \app\models\Page[]
  * @var $firstAddress string
  * @var $secondAddress string
+ * @var $mainSlides \app\models\MainSlider[]
  */
 use app\models\Article;
 use romkaChev\yii2\swiper\Swiper;
@@ -21,22 +22,16 @@ SiteIndexAsset::register($this);
 ?>
 <section id="main-slider" class="carousel">
     <div class="carousel-inner">
-        <div class="item active">
-            <div class="container">
-                <div class="carousel-content">
-                    <h1 class="text-uppercase">УНІВЕРСИТЕТ ДЕРЖАВНОЇ ФІСКАЛЬНОЇ СЛУЖБИ УКРАЇНИ
-                        ВІННИЦЬКИЙ НАВЧАЛЬНО-НАУКОВИЙ ІНСТИТУТ</h1>
+        <?php foreach($mainSlides as $slide) : ?>
+            <div class="item <?= $mainSlides[0]->id == $slide->id? 'active':''?>">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1 class="text-uppercase"><?= $slide->title?></h1>
+                        <p class="lead"><?= $slide->description?></p>
+                    </div>
                 </div>
-            </div>
-        </div><!--/.item-->
-        <div class="item">
-            <div class="container">
-                <div class="carousel-content">
-                    <h1>Lorem ipsum.</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-        </div><!--/.item-->
+            </div><!--/.item-->
+        <?php endforeach ?>
     </div><!--/.carousel-inner-->
     <a class="prev" href="#main-slider" data-slide="prev"><i class="icon-angle-left"></i></a>
     <a class="next" href="#main-slider" data-slide="next"><i class="icon-angle-right"></i></a>

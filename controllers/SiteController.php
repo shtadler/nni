@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Article;
 use app\models\Content;
 use app\models\Document;
+use app\models\MainSlider;
 use app\models\Page;
 use Yii;
 use yii\filters\AccessControl;
@@ -81,6 +82,7 @@ class SiteController extends Controller
         $submenu = Page::find()->where(['to_submenu' => 1])->all();
         $firstAddress = Content::find()->where(['id' => Content::FIRST_ADDRESS])->one();
         $secondAddress = Content::find()->where(['id' => Content::SECOND_ADDRESS])->one();
+        $mainSlides = MainSlider::find()->where(['status' => 1])->all();
         return $this->render('index', [
             'studentItems' => $studentItems,
             'abiturItems' => $abiturItems,
@@ -89,6 +91,7 @@ class SiteController extends Controller
             'submenu' => $submenu,
             'firstAddress' => $firstAddress,
             'secondAddress' => $secondAddress,
+            'mainSlides' => $mainSlides
         ]);
     }
 
