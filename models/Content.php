@@ -44,4 +44,9 @@ class Content extends \yii\db\ActiveRecord
             'description' => 'Description',
         ];
     }
+
+    function __toString() {
+       return $this->text;
+    }
+
 }
