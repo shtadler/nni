@@ -8,6 +8,7 @@ use app\models\Page;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -109,13 +110,58 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays about page.
-     *
+     * @param string $for
      * @return string
      */
-    public function actionAbout()
+    public function actionAllDocuments($for)
     {
-        return $this->render('about');
+        if($for == Article::ABITUR) {
+            $title = 'Всі документи для абітурієнтів';
+            $documents = Document::find()
+                                 ->joinWith('article')
+                                 ->where(['entity_name' => Document::ARTICLE])
+                                 ->andWhere(['article.for_abitur' => 1])
+                                 ->limit(5)
+                                 ->all();
+        } else {
+            $title = 'Всі документи для абітурієнтів';
+            $documents = Document::find()
+                                 ->joinWith('article')
+                                 ->where(['entity_name' => Document::ARTICLE])
+                                 ->andWhere(['article.for_students' => 1])
+                                 ->limit(5)
+                                 ->all();
+        }
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $title
+        ]);
+        $this->view->title = $title;
+        return $this->render('allDocuments', [
+            'documents' => $documents,
+        ]);
+    }
+
+    public function actionAllArticles($for)
+    {
+        if($for == Article::ABITUR) {
+            $title = 'Інформація для абітурієнтів';
+            $articles = Article::find()->where(['for_abitur' => 1])->all();
+        } else {
+            $title = 'Новини для студентів';
+            $articles = Article::find()->where(['for_students' => 1])->all();
+        }
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $title
+        ]);
+
+        $this->view->title = $title;
+
+        return $this->render('allArticles', [
+            'articles' => $articles,
+        ]);
+
     }
 
     /**

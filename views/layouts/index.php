@@ -42,7 +42,7 @@ AppAsset::register($this);
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
                     <li><a href="#students">Студентам</a></li>
-                    <li><a href="#abiturients">Абітуриєнтам</a></li>
+                    <li><a href="#abiturients">Абітурієнтам</a></li>
                     <li><a href="#contact">Контакти</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загальна інформація 

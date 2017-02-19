@@ -1,17 +1,19 @@
 <?php
 /**
  * @var $this \yii\web\View
- * @var $studentItems \app\models\Article[]|array
- * @var $abiturItems \app\models\Article[]|array
+ * @var $studentItems Article[]|array
+ * @var $abiturItems Article[]|array
  * @var $abiturFiles \app\models\Document[]
  * @var $studentFiles \app\models\Document[]
  * @var $submenu \app\models\Page[]
  */
+use app\models\Article;
 use romkaChev\yii2\swiper\Swiper;
 use app\assets\SiteIndexAsset;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 SiteIndexAsset::register($this);
 ?>
@@ -41,19 +43,28 @@ SiteIndexAsset::register($this);
 <section>
     <div class="container">
         <div id="students" class="box first">
-            <div class="row submenu">
-                <?php foreach ($submenu as $item) {
-                    echo Html::a(Html::encode($item->title), ['page/view', 'id' => $item->id], [
-                        'class' => 'submenu-item'
-                    ]);
-                } ?>
-            </div>
+            <?php if($submenu) : ?>
+                <div class="row submenu">
+                    <?php foreach ($submenu as $item) {
+                        echo Html::a(Html::encode($item->title), ['page/view', 'id' => $item->id], [
+                            'class' => 'submenu-item'
+                        ]);
+                    } ?>
+                </div>
+            <?php endif; ?>
             <div class="center gap">
                 <h2>Студентам</h2>
             </div><!--/.center-->
             <div class="row">
                 <div class="col-sm-8">
-                    <h3>Новини <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                    <h3>Новини
+                        <a href="<?= Url::to([
+                            'site/all-articles',
+                            'for' => Article::ABITUR
+                        ])?>" class="pull-right">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </a>
+                    </h3>
                     <hr>
                 <?= Swiper::widget( [
                     'items'         => $studentItems,
@@ -70,7 +81,15 @@ SiteIndexAsset::register($this);
                 ?>
                 </div>
                 <div class="col-sm-4 row">
-                <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                <h3>
+                    Документи
+                    <a href="<?= Url::to([
+                        'site/all-documents',
+                        'for' => Article::STUDENT
+                    ])?>" class="pull-right">
+                        <i class="glyphicon glyphicon-list"></i>
+                    </a>
+                </h3>
                 <hr>
                     <div class="list-group">
                         <?php foreach($studentFiles as $file) : ?>
@@ -100,7 +119,14 @@ SiteIndexAsset::register($this);
             </div><!--/.center-->
             <div class="row row-flex">
                 <div class="col-sm-8">
-                    <h3>Інформація <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                    <h3>Інформація
+                        <a href="<?= Url::to([
+                            'site/all-articles',
+                            'for' => Article::ABITUR
+                        ])?>" class="pull-right">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </a>
+                    </h3>
                     <hr>
                 <?= Swiper::widget( [
                     'items'         => $abiturItems,
@@ -117,7 +143,14 @@ SiteIndexAsset::register($this);
                 ?>
                 </div>
                 <div class="col-sm-4 row">
-                <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
+                <h3>Документи
+                    <a href="<?= Url::to([
+                        'site/all-documents',
+                        'for' => Article::ABITUR
+                    ])?>" class="pull-right">
+                        <i class="glyphicon glyphicon-list"></i>
+                    </a>
+                </h3>
                 <hr>
                     <div class="list-group">
                         <?php foreach($abiturFiles as $file) : ?>

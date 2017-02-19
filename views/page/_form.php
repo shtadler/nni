@@ -47,23 +47,7 @@ use yii\widgets\ActiveForm;
                 ]
             ]);?>
         </div>
-        <div class="col-sm-12">
-            <?php
-            echo '<br><label>Документы</label>';
-            echo FileInput::widget([
-                'model' => $model,
-                'attribute' => 'file[]',
-                'options' => ['multiple' => true],
-                'pluginOptions' => [
-                    'initialPreview'=> $model->initialPreview,
-                    'initialPreviewAsData'=>true,
-                    'initialPreviewConfig' => $model->initialPreviewConfig,
-                    'overwriteInitial'=>false,
-                    'maxFileSize'=>4000,
-                ]
-            ]);
-            ?>
-        </div>
+
         <div class="col-sm-12">
             <h2>Url</h2>
         </div>

@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 /**
@@ -26,6 +27,8 @@ use yii\helpers\Url;
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const ABITUR = 'abitur';
+    const STUDENT = 'student';
 
     public $file;
     /**

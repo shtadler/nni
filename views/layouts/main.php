@@ -38,9 +38,9 @@ AppAsset::register($this);
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><?= Html::a('<i class="icon-home"></i>', ['site/index', '#' => 'main-slider']) ?></li>
+                    <li><?= Html::a('<i class="icon-home"></i>', ['site/index', '#' => 'main-slider']) ?></li>
                     <li><?= Html::a('Студентам', ['site/index', '#' => 'students']) ?></li>
-                    <li><a href="#abiturients">Абітуриєнтам</a></li>
+                    <li><a href="#abiturients">Абітурієнтам</a></li>
                     <li><a href="#contact">Контакти</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Загальна інформація 
