@@ -63,7 +63,7 @@ use dosamigos\tinymce\TinyMce;
                 ]
             ]);
             ?>
-            </div>
+        </div>
         <div class="col-sm-12">
             <h2>Url</h2>
         </div>

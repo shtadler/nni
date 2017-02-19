@@ -1,16 +1,20 @@
 <?php
 use dosamigos\tinymce\TinyMce;
+use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Page */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $furl \app\models\Furl */
 ?>
 
 <div class="page-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options'=>['enctype'=>'multipart/form-data'] // important
+    ]); ?>
 
     <div class="row">
         <div class="col-sm-4">
@@ -42,6 +46,23 @@ use yii\widgets\ActiveForm;
                     'toolbar' => "undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | fullscreen | media"
                 ]
             ]);?>
+        </div>
+        <div class="col-sm-12">
+            <?php
+            echo '<br><label>Документы</label>';
+            echo FileInput::widget([
+                'model' => $model,
+                'attribute' => 'file[]',
+                'options' => ['multiple' => true],
+                'pluginOptions' => [
+                    'initialPreview'=> $model->initialPreview,
+                    'initialPreviewAsData'=>true,
+                    'initialPreviewConfig' => $model->initialPreviewConfig,
+                    'overwriteInitial'=>false,
+                    'maxFileSize'=>4000,
+                ]
+            ]);
+            ?>
         </div>
         <div class="col-sm-12">
             <h2>Url</h2>
