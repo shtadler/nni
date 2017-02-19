@@ -3,9 +3,12 @@
  * @var $this \yii\web\View
  * @var $studentItems \app\models\Article[]|array
  * @var $abiturItems \app\models\Article[]|array
+ * @var $abiturFiles \app\models\Document[]
+ * @var $studentFiles \app\models\Document[]
  */
 use romkaChev\yii2\swiper\Swiper;
 use app\assets\SiteIndexAsset;
+use yii\helpers\Html;
 
 SiteIndexAsset::register($this);
 ?>
@@ -63,26 +66,18 @@ SiteIndexAsset::register($this);
                 <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
                 <hr>
                     <div class="list-group">
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="/uploads/XZcj-9U73Lz2yx7CFnYE5OXppgQ80QnN.pdf"  class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
+                        <?php foreach($studentFiles as $file) : ?>
+                            <div class="list-group-item">
+                                <h4 class="list-group-item-heading"><?= Html::encode($file->name)?></h4>
+                                <p class="list-group-item-text">
+                                    Розмір: <?= Yii::$app->formatter->asShortSize($file->size, 1)?>
+                                    <?= Html::a('', Yii::getAlias("@web/uploads/{$file->hash_name}.{$file->extension}"), [
+                                        'class' => 'glyphicon glyphicon-download-alt pull-right',
+                                        'download' => Html::encode($file->name),
+                                    ])?>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div><!--/.row-->
@@ -120,26 +115,18 @@ SiteIndexAsset::register($this);
                 <h3>Документи <a href="#" class="pull-right"><i class="glyphicon glyphicon-list"></i></a></h3>
                 <hr>
                     <div class="list-group">
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Розмір: 123 kb <a href="#" class="glyphicon glyphicon-download-alt pull-right"></a></p>
-                        </div>
+                        <?php foreach($abiturFiles as $file) : ?>
+                            <div class="list-group-item">
+                                <h4 class="list-group-item-heading"><?= Html::encode($file->name)?></h4>
+                                <p class="list-group-item-text">
+                                    Розмір: <?= Yii::$app->formatter->asShortSize($file->size, 1)?>
+                                    <?= Html::a('', Yii::getAlias("@web/uploads/{$file->hash_name}.{$file->extension}"), [
+                                        'class' => 'glyphicon glyphicon-download-alt pull-right',
+                                        'download' => Html::encode($file->name),
+                                    ])?>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div><!--/.row-->

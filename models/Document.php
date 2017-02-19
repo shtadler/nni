@@ -54,4 +54,11 @@ class Document extends \yii\db\ActiveRecord
             'hash_name' => 'Hash Name',
         ];
     }
+
+
+    public function getArticle()
+    {
+        return $this->hasOne(Article::className(), ['id' => 'entity_id']);
+    }
+
 }

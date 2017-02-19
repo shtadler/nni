@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\Document;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -59,21 +60,27 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'index';
-        $sArticles = Article::find()->where(['for_students' => 1])->all();
-        $aArticles = Article::find()->where(['for_abitur' => 1])->all();
-        $studentItems = [];
-        $abiturItems = [];
-        if($sArticles) {
-            foreach ($sArticles as $sArticle) {
-                $studentItems[] = $this->view->render('/site/_swiperBody', ['article' => $sArticle]);
-            }
-        }
-        if($aArticles) {
-            foreach ($aArticles as $aArticle) {
-                $abiturItems[] = $this->view->render('/site/_swiperBody', ['article' => $aArticle]);
-            }
-        }
-        return $this->render('index', ['studentItems' => $studentItems, 'abiturItems' => $abiturItems]);
+
+        $abiturItems = $this->createSwiperSlides(Article::find()->where(['for_abitur' => 1])->all());
+        $studentItems = $this->createSwiperSlides(Article::find()->where(['for_students' => 1])->all());
+        $studentFiles = Document::find()
+            ->joinWith('article')
+            ->where(['entity_name' => Document::ARTICLE])
+            ->andWhere(['article.for_students' => 1])
+            ->limit(5)
+            ->all();
+        $abiturFiles = Document::find()
+            ->joinWith('article')
+            ->where(['entity_name' => Document::ARTICLE])
+            ->andWhere(['article.for_abitur' => 1])
+            ->limit(5)
+            ->all();
+        return $this->render('index', [
+            'studentItems' => $studentItems,
+            'abiturItems' => $abiturItems,
+            'studentFiles' => $studentFiles,
+            'abiturFiles' => $abiturFiles,
+        ]);
     }
 
     public function actionLogin()
@@ -106,5 +113,22 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    /**
+     * @param $articles
+     * @return array
+     */
+    private function createSwiperSlides($articles) {
+        $slides = [];
+        if($articles) {
+            foreach ($articles  as $article) {
+                $slides[] = $this->view->render('/site/_swiperBody', ['article' => $article]);
+            }
+
+            return $slides;
+        }
+
+        return $slides;
     }
 }

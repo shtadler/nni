@@ -2,34 +2,22 @@
 namespace app\components;
 
 use app\models\GalleryType;
+use app\models\Page;
 use Yii;
 
 class View extends \yii\web\View
 {
-    public $_galleries;
+    private $_pages;
 
     /**
-     * @return GalleryType[]
+     * @return Page[]
      */
-    public function getGalleries()
+    public function getPages()
     {
-        if(empty($this->_galleries)) {
-            $this->_galleries = GalleryType::find()->where(['status' => 1])->all();
+        if(empty($this->_pages)) {
+            $this->_pages = Page::find()->where(['to_dropdown' => 1])->all();
         }
 
-        return $this->_galleries;
-    }
-
-    /**
-     * @return array
-     */
-    public function createGalleryTypeMenuItem()
-    {
-        $items = [];
-        foreach ($this->getGalleries() as $gallery) {
-            $items[] = ['label' => $gallery->name, 'url' => ['/gallery/index', 'id' => $gallery->id]];
-        }
-
-        return $items;
+        return $this->_pages;
     }
 }
