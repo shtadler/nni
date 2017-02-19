@@ -35,7 +35,7 @@ $this->title = 'My Yii Application';
 
                 <p>Служит для управления документами на сайте</p>
 
-                <p><?= Html::a('Перейти &raquo;', [''], ['class' => 'btn btn-default'])?></p>
+                <p><?= Html::a('Перейти &raquo;', ['document/index'], ['class' => 'btn btn-default'])?></p>
             </div>
         </div>
 
