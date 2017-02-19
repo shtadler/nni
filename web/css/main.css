@@ -687,6 +687,15 @@ hr {
   .box.first {
     padding-top: 50px;
   }
+  .logo-label {
+    font-size: 18px;
+  }
+  .navbar-brand .logo-img {
+    width: 72px;
+  }
+  .article-slider-holder {
+    padding: 0;
+  }
 }
 
 .tab-content {

@@ -53,7 +53,7 @@ SiteIndexAsset::register($this);
                 <h2>Студентам</h2>
             </div><!--/.center-->
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8 article-slider-holder">
                     <h3>Новини
                         <a href="<?= Url::to([
                             'site/all-articles',
@@ -115,7 +115,7 @@ SiteIndexAsset::register($this);
                 <h2>Абітурієнтам</h2>
             </div><!--/.center-->
             <div class="row row-flex">
-                <div class="col-sm-8">
+                <div class="col-sm-8 article-slider-holder">
                     <h3>Інформація
                         <a href="<?= Url::to([
                             'site/all-articles',
