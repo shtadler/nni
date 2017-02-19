@@ -696,6 +696,9 @@ hr {
   .article-slider-holder {
     padding: 0;
   }
+  .ccenter .gap .h2{
+      font-size: 38px;
+  }
 }
 
 .tab-content {
